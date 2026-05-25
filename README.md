@@ -179,11 +179,10 @@ Open `flight_delay_prediction.ipynb` in Google Colab and run all cells in order.
 
 ```python
 import joblib
-model = joblib.load('flight_delay_model.joblib')
-
-# Predict on new data (must have same features as X_train)
-y_pred = model.predict(X_new)
-y_proba = model.predict_proba(X_new)[:, 1]  # probability of delay
+artifacts = joblib.load('flight_delay_artifacts.joblib')
+model    = artifacts['model']
+encoders = artifacts['encoders']
+features = artifacts['features']
 ```
 
 ---
